@@ -1,12 +1,20 @@
 # ATM Controller Requirements
 
+## **BankService**
+
+```ts
+interface BankServiceImpl {
+  validatePinNumber: (pinNumber: number) => boolean;
+}
+```
+
 ## ATM Controller
 
 - [ ] ATM has **BankService**.
 
 - [ ] ATM has **CashLocker**.
 
-- [ ] insert **BankAccount**(BankCard, BankBook... etc)
+- [ ] insert **UserAccount**(BankCard, BankBook... is **BankAccount**)
 
 - [ ] check correct PIN number with **BankService**.
 
