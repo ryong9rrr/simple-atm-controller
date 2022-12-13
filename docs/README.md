@@ -23,7 +23,7 @@ interface CashLockerServiceImpl {
 
 - [x] ATM has **CashLocker**.
 
-- [ ] insert **UserAccount**(BankCard, BankBook... is **BankAccount**)
+- [x] insert **UserAccount**(BankCard, BankBook... is **BankAccount**)
 
 - [ ] check correct PIN number with **BankService**.
 

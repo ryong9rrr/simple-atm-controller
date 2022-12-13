@@ -1,4 +1,4 @@
-import CashLockerImpl from "./CashLockerImpl";
+import CashLockerImpl from "../src/domain/CashLockerImpl";
 
 export default class CashLocker implements CashLockerImpl {
   private money: number;

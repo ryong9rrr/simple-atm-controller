@@ -1,4 +1,4 @@
-import BankServiceImpl from "./BankServiceImpl";
+import BankServiceImpl from "../src/domain/BankServiceImpl";
 
 export default class BankService implements BankServiceImpl {
   validatePinNumber(pinNumber: number) {

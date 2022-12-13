@@ -9,4 +9,8 @@ export default class ATM {
     this.bankService = bankService;
     this.cashService = cashService;
   }
+
+  // insert(userAccount ) {
+
+  // }
 }
