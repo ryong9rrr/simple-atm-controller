@@ -8,11 +8,20 @@ interface BankServiceImpl {
 }
 ```
 
+## **CashLockerService**
+
+```ts
+interface CashLockerServiceImpl {
+  deposit: (money: number) => void;
+  withdraw: (money: number) => void;
+}
+```
+
 ## ATM Controller
 
-- [ ] ATM has **BankService**.
+- [x] ATM has **BankService**.
 
-- [ ] ATM has **CashLocker**.
+- [x] ATM has **CashLocker**.
 
 - [ ] insert **UserAccount**(BankCard, BankBook... is **BankAccount**)
 
