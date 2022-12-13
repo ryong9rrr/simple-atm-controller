@@ -49,6 +49,7 @@ describe("ATM Controller Test", () => {
     const resultAccount: Account = {
       id: "user-account-id-1",
       accountNumber: 111122223333,
+      money: 0,
     };
     expect(selectedAccount).toEqual(resultAccount);
   });

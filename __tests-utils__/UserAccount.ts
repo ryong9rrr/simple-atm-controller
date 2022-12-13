@@ -10,7 +10,7 @@ export default class UserAccount implements UserAccountServiceImpl {
   }
 
   createAccount(id: string, accountNumber: number) {
-    const newAccount: Account = { id, accountNumber };
+    const newAccount: Account = { id, accountNumber, money: 0 };
     this.accounts.push(newAccount);
   }
 
