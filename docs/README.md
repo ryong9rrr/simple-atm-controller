@@ -25,7 +25,7 @@ interface CashLockerServiceImpl {
 
 - [x] insert **UserAccount**
 
-- [ ] check correct PIN number with **BankService**.
+- [x] check correct PIN number with **BankService**.
 
 - [ ] select Account.
 

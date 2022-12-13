@@ -8,7 +8,10 @@ let userAccount: UserAccount | null;
 
 describe("ATM Controller Test", () => {
   beforeEach(() => {
-    atm = new ATM(new BankService(), new CashService());
+    atm = new ATM({
+      bankService: new BankService(),
+      cashLockerService: new CashService(),
+    });
 
     userAccount = new UserAccount(123456789);
     userAccount.createAccount("user-account-id-1", 111122223333);

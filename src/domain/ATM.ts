@@ -2,12 +2,17 @@ import BankServiceImpl from "./BankServiceImpl";
 import CashLockerImpl from "./CashLockerImpl";
 import UserAccountServiceImpl from "./UserAccountServiceImpl";
 
+interface ConstructorProps {
+  bankService: BankServiceImpl;
+  cashLockerService: CashLockerImpl;
+}
+
 export default class ATM {
   private bankService: BankServiceImpl;
   private cashLockerService: CashLockerImpl;
   private userAccount: UserAccountServiceImpl | null = null;
 
-  constructor(bankService: BankServiceImpl, cashLockerService: CashLockerImpl) {
+  constructor({ bankService, cashLockerService }: ConstructorProps) {
     this.bankService = bankService;
     this.cashLockerService = cashLockerService;
   }
