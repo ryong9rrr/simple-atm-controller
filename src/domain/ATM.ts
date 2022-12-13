@@ -1,3 +1,4 @@
+import { Account } from "../model";
 import BankServiceImpl from "./BankServiceImpl";
 import CashLockerImpl from "./CashLockerImpl";
 import UserAccountServiceImpl from "./UserAccountServiceImpl";
@@ -11,6 +12,7 @@ export default class ATM {
   private bankService: BankServiceImpl;
   private cashLockerService: CashLockerImpl;
   private userAccount: UserAccountServiceImpl | null = null;
+  private selectedAccount: Account | null = null;
 
   constructor({ bankService, cashLockerService }: ConstructorProps) {
     this.bankService = bankService;
@@ -21,12 +23,21 @@ export default class ATM {
     this.userAccount = userAccount;
   }
 
+  private setSelectedAccount(account: Account | null) {
+    this.selectedAccount = account;
+  }
+
   endWork() {
     this.setUserAccount(null);
+    this.setSelectedAccount(null);
   }
 
   getCurrentUserAccount() {
     return this.userAccount;
+  }
+
+  getCurrentSelectedAccount() {
+    return this.selectedAccount;
   }
 
   insert(userAccount: UserAccountServiceImpl) {
@@ -48,7 +59,6 @@ export default class ATM {
     if (!selectedAccount) {
       throw new Error("The account does not exist.");
     }
-
-    return selectedAccount;
+    this.setSelectedAccount(selectedAccount);
   }
 }

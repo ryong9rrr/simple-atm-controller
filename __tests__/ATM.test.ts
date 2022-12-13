@@ -45,7 +45,8 @@ describe("ATM Controller Test", () => {
 
   test("selectAccount()", () => {
     atm!.insert(userAccount!);
-    const selectedAccount = atm!.selectAccount("user-account-id-1");
+    atm!.selectAccount("user-account-id-1");
+    const selectedAccount = atm!.getCurrentSelectedAccount();
     const resultAccount: Account = {
       id: "user-account-id-1",
       accountNumber: 111122223333,
