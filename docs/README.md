@@ -27,7 +27,7 @@ interface CashLockerServiceImpl {
 
 - [x] check correct PIN number with **BankService**.
 
-- [ ] select Account.
+- [x] select Account.
 
 - [ ] ATM work
   - [ ] confirm balance.

@@ -38,4 +38,17 @@ export default class ATM {
     }
     this.setUserAccount(userAccount);
   }
+
+  selectAccount(accountId: string) {
+    if (!this.userAccount) {
+      throw new Error("The account does not exist.");
+    }
+
+    const selectedAccount = this.userAccount.getUserAccount(accountId);
+    if (!selectedAccount) {
+      throw new Error("The account does not exist.");
+    }
+
+    return selectedAccount;
+  }
 }

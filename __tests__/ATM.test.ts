@@ -2,6 +2,7 @@ import ATM from "../src/domain/ATM";
 import CashService from "../__tests-utils__/CashLocker";
 import BankService from "../__tests-utils__/BankService";
 import UserAccount from "../__tests-utils__/UserAccount";
+import { Account } from "../src/model";
 
 let atm: ATM | null;
 let userAccount: UserAccount | null;
@@ -27,5 +28,28 @@ describe("ATM Controller Test", () => {
   test("insert()", () => {
     atm!.insert(userAccount!);
     expect(atm!.getCurrentUserAccount()).toEqual(userAccount);
+  });
+
+  test("selectAccount() - exception : if not insert userAccount", () => {
+    expect(() => {
+      atm!.selectAccount("user-account-id-1");
+    }).toThrow();
+  });
+
+  test("selectAccount() - exception : if inValid accountId", () => {
+    atm!.insert(userAccount!);
+    expect(() => {
+      atm!.selectAccount("user-account-id-100");
+    }).toThrow();
+  });
+
+  test("selectAccount()", () => {
+    atm!.insert(userAccount!);
+    const selectedAccount = atm!.selectAccount("user-account-id-1");
+    const resultAccount: Account = {
+      id: "user-account-id-1",
+      accountNumber: 111122223333,
+    };
+    expect(selectedAccount).toEqual(resultAccount);
   });
 });
