@@ -29,9 +29,9 @@ interface CashLockerServiceImpl {
 
 - [x] select Account.
 
-- [ ] ATM work
-  - [ ] confirm balance.
-  - [ ] deposit money with **BankService, CashLocker**.
-  - [ ] withdraw money with **BankService, CashLocker**.
+- [x] ATM work
+  - [x] confirm balance.
+  - [x] deposit money with **BankService, CashLocker**.
+  - [x] withdraw money with **BankService, CashLocker**.
   - [ ] end working
   - [ ] rework

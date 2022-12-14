@@ -34,4 +34,21 @@ export default class UserAccount implements UserAccountServiceImpl {
       return _account;
     });
   }
+
+  withdraw(account: Account, money: number) {
+    const targetAccount = this.getUserAccount(account.id);
+    if (!targetAccount) {
+      throw new Error("It is not existing Account");
+    }
+    if (targetAccount.money - money < 0) {
+      throw new Error(`you can withdraw ${targetAccount.money}.`);
+    }
+
+    this.accounts = this.accounts.map((_account) => {
+      if (_account.id === account.id) {
+        _account.money -= money;
+      }
+      return _account;
+    });
+  }
 }
