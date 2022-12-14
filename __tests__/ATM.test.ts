@@ -54,4 +54,18 @@ describe("ATM Controller Test", () => {
     };
     expect(selectedAccount).toEqual(resultAccount);
   });
+
+  test("work() - balance - exception : if not select account", () => {
+    atm!.insert(userAccount!);
+    expect(() => {
+      atm!.work("balance");
+    }).toThrow();
+  });
+
+  test("work() - balance", () => {
+    atm!.insert(userAccount!);
+    atm!.selectAccount("user-account-id-1");
+    const balance = atm!.work("balance");
+    expect(balance).toEqual(0);
+  });
 });
