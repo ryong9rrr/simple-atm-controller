@@ -107,4 +107,16 @@ describe("ATM Controller Test", () => {
     const myAccount = userAccount!.getUserAccount("user-account-id-1");
     expect(myAccount!.money).toEqual(9000);
   });
+
+  test("work end", () => {
+    // some working...
+    atm!.insert(userAccount!);
+    atm!.selectAccount("user-account-id-1");
+    atm!.workOfDeposit(10000);
+    atm!.workOfWithdraw(1000);
+    // check ATM
+    atm!.endWork();
+    expect(atm!.getCurrentSelectedAccount()).toBeNull();
+    expect(atm!.getCurrentUserAccount()).toBeNull();
+  });
 });

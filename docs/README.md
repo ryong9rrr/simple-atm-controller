@@ -33,5 +33,4 @@ interface CashLockerServiceImpl {
   - [x] confirm balance.
   - [x] deposit money with **BankService, CashLocker**.
   - [x] withdraw money with **BankService, CashLocker**.
-  - [ ] end working
-  - [ ] rework
+  - [x] end working
