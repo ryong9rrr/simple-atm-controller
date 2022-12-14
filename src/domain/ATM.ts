@@ -62,26 +62,7 @@ export default class ATM {
     this.setSelectedAccount(selectedAccount);
   }
 
-  work(workType: "balance" | "deposit" | "withdraw") {
-    if (!this.selectedAccount) {
-      throw new Error("please select Account.");
-    }
-
-    switch (workType) {
-      case "balance":
-        return this.workOfBalance();
-      case "deposit":
-        // 입금을 한다.
-        break;
-      case "withdraw":
-        // 출금을 한다.
-        break;
-      default:
-        throw new Error("invalid work.");
-    }
-  }
-
-  private workOfBalance() {
+  workOfBalance() {
     if (!this.selectedAccount) {
       throw new Error("please select Account.");
     }
