@@ -63,11 +63,20 @@ export default class ATM {
   }
 
   workOfBalance() {
-    if (!this.selectedAccount) {
+    if (!this.userAccount || !this.selectedAccount) {
       throw new Error("please select Account.");
     }
 
     const result = this.bankService.getBalance(this.selectedAccount);
     return result;
+  }
+
+  workOfDeposit(money: number) {
+    if (!this.userAccount || !this.selectedAccount) {
+      throw new Error("please select Account.");
+    }
+
+    this.userAccount.deposit(this.selectedAccount, money);
+    this.cashLockerService.deposit(money);
   }
 }

@@ -4,4 +4,5 @@ export default interface UserAccountServiceImpl {
   getPinNumber: () => number;
   getUserAccounts: () => Account[];
   getUserAccount: (accountId: string) => Account | null;
+  deposit: (account: Account, money: number) => void;
 }

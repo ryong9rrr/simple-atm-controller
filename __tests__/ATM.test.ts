@@ -69,11 +69,18 @@ describe("ATM Controller Test", () => {
     expect(balance).toEqual(0);
   });
 
-  // test("work() - deposit()", () => {
-  //   atm!.insert(userAccount!);
-  //   atm!.selectAccount("user-account-id-1");
-  //   atm!.workOfDeposit(1000);
-  //   const myAccount = userAccount.getUserAccount("user-account-id-1");
-  //   expect(myAccount!.money).toEqual(1000);
-  // });
+  test("workOfDeposit() - exception : if not select account", () => {
+    atm!.insert(userAccount!);
+    expect(() => {
+      atm!.workOfDeposit(1000);
+    }).toThrow();
+  });
+
+  test("work() - deposit()", () => {
+    atm!.insert(userAccount!);
+    atm!.selectAccount("user-account-id-1");
+    atm!.workOfDeposit(1000);
+    const myAccount = userAccount!.getUserAccount("user-account-id-1");
+    expect(myAccount!.money).toEqual(1000);
+  });
 });
