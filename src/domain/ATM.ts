@@ -79,4 +79,13 @@ export default class ATM {
     this.userAccount.deposit(this.selectedAccount, money);
     this.cashLockerService.deposit(money);
   }
+
+  workOfWithdraw(money: number) {
+    if (!this.userAccount || !this.selectedAccount) {
+      throw new Error("please select Account.");
+    }
+
+    this.userAccount.withdraw(this.selectedAccount, money);
+    this.cashLockerService.withdraw(money);
+  }
 }

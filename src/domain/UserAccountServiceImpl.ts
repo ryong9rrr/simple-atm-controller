@@ -5,4 +5,5 @@ export default interface UserAccountServiceImpl {
   getUserAccounts: () => Account[];
   getUserAccount: (accountId: string) => Account | null;
   deposit: (account: Account, money: number) => void;
+  withdraw: (account: Account, money: number) => void;
 }
