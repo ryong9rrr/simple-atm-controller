@@ -63,14 +63,13 @@ export default class ATM {
   }
 
   work(workType: "balance" | "deposit" | "withdraw") {
-    if (!this.getCurrentSelectedAccount()) {
+    if (!this.selectedAccount) {
       throw new Error("please select Account.");
     }
 
     switch (workType) {
       case "balance":
-        // 잔돈을 반환한다.
-        break;
+        return this.workOfBalance();
       case "deposit":
         // 입금을 한다.
         break;
@@ -80,5 +79,14 @@ export default class ATM {
       default:
         throw new Error("invalid work.");
     }
+  }
+
+  private workOfBalance() {
+    if (!this.selectedAccount) {
+      throw new Error("please select Account.");
+    }
+
+    const result = this.bankService.getBalance(this.selectedAccount);
+    return result;
   }
 }
