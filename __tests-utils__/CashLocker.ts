@@ -1,6 +1,6 @@
-import CashLockerImpl from "../src/domain/CashLockerImpl";
+import CashLockerServiceImpl from "../src/domain/CashLockerServiceImpl";
 
-export default class CashLocker implements CashLockerImpl {
+export default class CashLocker implements CashLockerServiceImpl {
   private money: number;
   constructor() {
     this.money = Math.floor(Number.MAX_SAFE_INTEGER / 2);

@@ -1,16 +1,16 @@
 import { Account } from "../model";
 import BankServiceImpl from "./BankServiceImpl";
-import CashLockerImpl from "./CashLockerImpl";
+import CashLockerServiceImpl from "./CashLockerServiceImpl";
 import UserAccountServiceImpl from "./UserAccountServiceImpl";
 
 interface ConstructorProps {
   bankService: BankServiceImpl;
-  cashLockerService: CashLockerImpl;
+  cashLockerService: CashLockerServiceImpl;
 }
 
 export default class ATM {
   private bankService: BankServiceImpl;
-  private cashLockerService: CashLockerImpl;
+  private cashLockerService: CashLockerServiceImpl;
   private userAccount: UserAccountServiceImpl | null = null;
   private selectedAccount: Account | null = null;
 
@@ -60,5 +60,25 @@ export default class ATM {
       throw new Error("The account does not exist.");
     }
     this.setSelectedAccount(selectedAccount);
+  }
+
+  work(workType: "balance" | "deposit" | "withdraw") {
+    if (!this.getCurrentSelectedAccount()) {
+      throw new Error("please select Account.");
+    }
+
+    switch (workType) {
+      case "balance":
+        // 잔돈을 반환한다.
+        break;
+      case "deposit":
+        // 입금을 한다.
+        break;
+      case "withdraw":
+        // 출금을 한다.
+        break;
+      default:
+        throw new Error("invalid work.");
+    }
   }
 }
