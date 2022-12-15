@@ -26,6 +26,10 @@ export default class UserAccount implements UserAccountServiceImpl {
     return this.accounts.find(({ id }) => id === accountId) || null;
   }
 
+  getBalance(account: Account) {
+    return account.money;
+  }
+
   deposit(account: Account, money: number) {
     this.accounts = this.accounts.map((_account) => {
       if (_account.id === account.id) {

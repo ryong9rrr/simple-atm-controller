@@ -41,9 +41,7 @@ export default class ATM {
   }
 
   insert(userAccount: UserAccountServiceImpl) {
-    const isAuth = this.bankService.validatePinNumber(
-      userAccount.getPinNumber(),
-    );
+    const isAuth = this.bankService.validatePinNumber(userAccount.getPinNumber());
     if (!isAuth) {
       throw new Error("PIN number is not authorized.");
     }
@@ -67,7 +65,7 @@ export default class ATM {
       throw new Error("please select Account.");
     }
 
-    const result = this.bankService.getBalance(this.selectedAccount);
+    const result = this.userAccount.getBalance(this.selectedAccount);
     return result;
   }
 
