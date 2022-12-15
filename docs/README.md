@@ -1,6 +1,6 @@
 # ATM Controller Requirements
 
-## **BankService**
+## BankServiceImpl
 
 ```ts
 interface BankServiceImpl {
@@ -8,12 +8,25 @@ interface BankServiceImpl {
 }
 ```
 
-## **CashLockerService**
+## CashLockerServiceImpl
 
 ```ts
 interface CashLockerServiceImpl {
   deposit: (money: number) => void;
   withdraw: (money: number) => void;
+}
+```
+
+## UserAccountServiceImpl
+
+```ts
+interface UserAccountServiceImpl {
+  getPinNumber: () => number;
+  getUserAccounts: () => Account[];
+  getUserAccount: (accountId: string) => Account | null;
+  getBalance: (account: Account) => number;
+  deposit: (account: Account, money: number) => void;
+  withdraw: (account: Account, money: number) => void;
 }
 ```
 
